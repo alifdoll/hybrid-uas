@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "hybrid-uas",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

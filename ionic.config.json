@@ -1,0 +1,7 @@
+{
+  "name": "hybrid-uas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
