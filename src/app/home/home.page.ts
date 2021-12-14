@@ -20,6 +20,7 @@ export class HomePage implements OnInit {
     private http: HttpClient,
     private menu: MenuController
   ) {}
+
   async ngOnInit() {
     this.token = await this.storage.get('token');
     console.log('test token ' + this.token);
@@ -28,4 +29,8 @@ export class HomePage implements OnInit {
       console.log(data);
     });
   }
+
+  addForm = function () {
+    this.nav.navigateRoot('add');
+  };
 }

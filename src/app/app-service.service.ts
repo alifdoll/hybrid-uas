@@ -45,4 +45,19 @@ export class AppServiceService {
       body
     );
   };
+
+  addPosts = function (
+    caption: string,
+    content: string,
+    token: string
+  ): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('caption', caption);
+    body = body.set('content', content);
+    body = body.set('token', token);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/insert.php',
+      body
+    );
+  };
 }

@@ -4,5 +4,11 @@
     <h2>{{ mv.caption }}</h2>
     <ion-img src="{{ mv.content }}"></ion-img>
   </ion-card-content>
-  <ion-button color="warning"> Detail </ion-button>
+  <ion-button color="primary" (click)="detailPost()"> Detail </ion-button>
+  <ion-button color="primary" (click)="editForm()" *ngIf="id == mv.users_id">
+    Edit
+  </ion-button>
+  <ion-button color="danger" (click)="deletePost()" *ngIf="id == mv.users_id">
+    Delete
+  </ion-button>
 </ion-card>

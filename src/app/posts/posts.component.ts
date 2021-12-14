@@ -11,6 +11,7 @@ import { PostService } from '../post.service';
 })
 export class PostsComponent implements OnInit {
   public token: any = '';
+  public id: any = '6';
   posts = [];
 
   constructor(
@@ -28,4 +29,16 @@ export class PostsComponent implements OnInit {
       console.log(data.data);
     });
   }
+
+  editForm = function () {
+    this.nav.navigateRoot('edit');
+  };
+
+  deletePost = function () {
+    window.location.reload();
+  };
+
+  detailPost = function () {
+    this.nav.navigateRoot('detail');
+  };
 }
