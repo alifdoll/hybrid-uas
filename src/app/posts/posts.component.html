@@ -1,8 +1,8 @@
 <ion-card *ngFor="let mv of posts; let i = index">
   <ion-chip>{{ i + 1 }}</ion-chip>
   <ion-card-content>
-    <h2>{{ mv.judul }}</h2>
-    <ion-img src="{{ mv.poster }}"></ion-img>
+    <h2>{{ mv.caption }}</h2>
+    <ion-img src="{{ mv.content }}"></ion-img>
   </ion-card-content>
   <ion-button color="warning"> Detail </ion-button>
 </ion-card>

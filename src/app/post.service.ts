@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AppServiceService } from './app-service.service';
 import { PostModel } from './model/PostModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  constructor() {}
+  constructor(public as: AppServiceService, private storage: Storage) {}
 
   posts: PostModel[] = [
     new PostModel(

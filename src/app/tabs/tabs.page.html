@@ -1,4 +1,37 @@
-<ion-tabs>
+<ion-header *ngIf="!token">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+  <ion-card *ngIf="!token">
+    <ion-item>
+      <ion-input
+        name="username"
+        type="username"
+        placeholder="username"
+        [(ngModel)]="username"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        name="password"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block" (click)="login()"
+      >Login</ion-button
+    >
+    <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+    <ion-button expand="block" color="secondary" (click)="registerPage()"
+      >Register
+    </ion-button>
+  </ion-card>
+</ion-header>
+
+<ion-tabs *ngIf="token">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
       <ion-icon name="triangle"></ion-icon>
