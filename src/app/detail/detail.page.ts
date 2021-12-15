@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { AppServiceService } from '../app-service.service';
 
@@ -12,10 +13,12 @@ export class DetailPage implements OnInit {
   constructor(
     public as: AppServiceService,
     private storage: Storage,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public nav: NavController
   ) {}
 
   posts = [];
+  comments = [];
 
   ngOnInit() {
     this.detailPostId();
@@ -29,11 +32,22 @@ export class DetailPage implements OnInit {
       )
       .subscribe((data) => {
         this.posts = data.data[0];
+        this.comments = this.posts.comments;
         console.log(data.data);
       });
   };
 
-  testing = function () {
-    console.log(parseInt(this.route.snapshot.params['id']));
+  likePost = async function (id) {
+    console.log(id);
+    this.as
+      .sendLike(id, await this.storage.get('token'))
+      .subscribe(() => this.nav.navigateRoot(''));
+  };
+
+  addComment = async function (id) {
+    console.log(id);
+    this.as
+      .addComment(await this.storage.get('token'), id, this.comment)
+      .subscribe(() => this.nav.navigateRoot(''));
   };
 }

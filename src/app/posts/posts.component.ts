@@ -47,4 +47,15 @@ export class PostsComponent implements OnInit {
   detailPost = function (id) {
     this.nav.navigateRoot('/details/' + id);
   };
+
+  editPost = function (id) {
+    this.nav.navigateRoot('/edit/' + id);
+  };
+
+  likePost = async function (id) {
+    console.log(id);
+    this.as
+      .sendLike(id, await this.storage.get('token'))
+      .subscribe(() => window.location.reload());
+  };
 }

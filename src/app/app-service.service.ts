@@ -72,6 +72,23 @@ export class AppServiceService {
     );
   };
 
+  editPost = function (
+    id: string,
+    caption: string,
+    content: string,
+    token: string
+  ): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('caption', caption);
+    body = body.set('id', id);
+    body = body.set('content', content);
+    body = body.set('token', token);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/edit.php',
+      body
+    );
+  };
+
   getProfile = function (token: string): Observable<any> {
     let body = new HttpParams();
     body = body.set('token', token);
@@ -87,6 +104,31 @@ export class AppServiceService {
     body = body.set('id', post_id);
     return this.http.post(
       'https://ubaya.fun/hybrid/160419113/uas/api/posts/detail.php',
+      body
+    );
+  };
+
+  sendLike = function (post_id: string, token: string): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('token', token);
+    body = body.set('post_id', post_id);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/likes.php',
+      body
+    );
+  };
+
+  addComment = function (
+    token: string,
+    post_id: string,
+    comment: string
+  ): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('token', token);
+    body = body.set('post_id', post_id);
+    body = body.set('comment', comment);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/comments.php',
       body
     );
   };

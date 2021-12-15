@@ -11,6 +11,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppServiceService } from './app-service.service';
 import { AppComponent } from './app.component';
+import { EditPage } from './edit/edit.page';
 
 @NgModule({
   declarations: [AppComponent],

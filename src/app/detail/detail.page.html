@@ -14,20 +14,34 @@
       <ion-row>
         <ion-col size="3">
           <ion-avatar>
-            <img src=" {{ posts.avatar }} " alt="" />
+            <ion-img src="{{ posts.avatar }}"></ion-img>
           </ion-avatar>
         </ion-col>
-        <ion-col size="9"><h2 style="margin-top: 1rem">a</h2></ion-col>
+        <ion-col size="9"
+          ><h2 style="margin-top: 1rem">{{ posts.name }}</h2></ion-col
+        >
         <ion-col size="12"></ion-col>
       </ion-row>
     </ion-grid>
     <ion-img class="img-content" src=" {{ posts.content }} "></ion-img>
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="10" offset="1"></ion-col>
+        <ion-col size="12">
+          <p>{{ posts.caption }}</p>
+        </ion-col>
         <ion-col size="3">
-          <ion-button color="transparant">
-            <ion-icon name="heart-outline" size="large"></ion-icon>
+          <ion-button color="transparant" (click)="likePost(posts.id)">
+            <ion-icon
+              name="heart-outline"
+              size="large"
+              *ngIf="posts.liked == 0"
+            ></ion-icon>
+            <ion-icon
+              color="danger"
+              name="heart-outline"
+              size="large"
+              *ngIf="posts.liked == 1"
+            ></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col size="3">
@@ -41,3 +55,46 @@
     </ion-grid>
   </ion-card-content>
 </ion-card>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="3">
+        <ion-avatar>
+          <img src="{{ posts.avatar }}" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="6"
+        ><ion-input
+          expand="full"
+          name="comment"
+          type="comment"
+          placeholder="comment"
+          [(ngModel)]="comment"
+        ></ion-input
+      ></ion-col>
+      <ion-col size="3"
+        ><ion-button (click)="addComment( posts.id )">Send</ion-button></ion-col
+      >
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let cmo of comments; let i = index">
+    <ion-row>
+      <ion-col size="2">
+        <ion-avatar>
+          <img src="{{ posts.avatar }}" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="10">
+        <p>
+          <a
+            href=""
+            style="text-decoration: none !important; font-weight: bolder"
+            >{{ cmo.name}}</a
+          >
+          {{ cmo.comment }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

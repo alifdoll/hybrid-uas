@@ -27,4 +27,8 @@ export class AppComponent {
     await this.storage.remove('token');
     window.location.reload();
   }
+
+  home() {
+    this.nav.navigateRoot('');
+  }
 }
