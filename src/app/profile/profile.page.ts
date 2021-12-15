@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+import { AppServiceService } from '../app-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  constructor(public as: AppServiceService, private storage: Storage) {}
 
-  constructor() { }
+  profile = [];
 
   ngOnInit() {
+    this.getProfile();
   }
 
+  getProfile = async function () {
+    this.token = await this.storage.get('token');
+    this.as.getProfile(this.token).subscribe((data) => {
+      this.profile = data.msg;
+    });
+  };
 }

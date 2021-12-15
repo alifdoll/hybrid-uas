@@ -26,6 +26,9 @@ export class RegisterPagePage implements OnInit {
 
         this.token = this.user.token;
         this.storage.set('token', this.token);
+
+        this.id = this.user.id;
+        this.storage.set('id', this.id);
       });
     this.loginPage();
   };

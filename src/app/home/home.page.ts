@@ -12,6 +12,7 @@ import { AppServiceService } from '../app-service.service';
 export class HomePage implements OnInit {
   public token: any = '';
   posts = [];
+  profile = [];
 
   constructor(
     public nav: NavController,
@@ -27,6 +28,9 @@ export class HomePage implements OnInit {
     this.as.getAllPosts(this.token).subscribe((data) => {
       this.posts = data;
       console.log(data);
+    });
+    this.as.getProfile(this.token).subscribe((data) => {
+      this.profile = data.msg;
     });
   }
 

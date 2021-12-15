@@ -46,6 +46,17 @@ export class AppServiceService {
     );
   };
 
+  deletePosts = function (token: string, post_id: string): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('token', token);
+    body = body.set('id', post_id);
+    console.log('token di service ' + token);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/delete.php',
+      body
+    );
+  };
+
   addPosts = function (
     caption: string,
     content: string,
@@ -57,6 +68,25 @@ export class AppServiceService {
     body = body.set('token', token);
     return this.http.post(
       'https://ubaya.fun/hybrid/160419113/uas/api/posts/insert.php',
+      body
+    );
+  };
+
+  getProfile = function (token: string): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('token', token);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/profile.php',
+      body
+    );
+  };
+
+  detailPost = function (post_id: string, token: string): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('token', token);
+    body = body.set('id', post_id);
+    return this.http.post(
+      'https://ubaya.fun/hybrid/160419113/uas/api/posts/detail.php',
       body
     );
   };

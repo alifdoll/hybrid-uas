@@ -1,14 +1,64 @@
 <ion-card *ngFor="let mv of posts; let i = index">
-  <ion-chip>{{ i + 1 }}</ion-chip>
   <ion-card-content>
-    <h2>{{ mv.caption }}</h2>
-    <ion-img src="{{ mv.content }}"></ion-img>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="3">
+          <ion-avatar>
+            <img src="{{ mv.avatar }}" alt="" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="9"
+          ><h2 style="margin-top: 1rem">{{ mv.name }}</h2></ion-col
+        >
+        <ion-col size="12"></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-img class="img-content" src="{{ mv.content }}"></ion-img>
   </ion-card-content>
-  <ion-button color="primary" (click)="detailPost()"> Detail </ion-button>
-  <ion-button color="primary" (click)="editForm()" *ngIf="id == mv.users_id">
-    Edit
-  </ion-button>
-  <ion-button color="danger" (click)="deletePost()" *ngIf="id == mv.users_id">
-    Delete
-  </ion-button>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        {{ mv.caption }}
+      </ion-col>
+      <ion-col size="3">
+        <ion-button color="transparant" (click)="detailPost()">
+          <ion-icon
+            name="heart-outline"
+            size="large"
+            *ngIf="mv.liked == 0"
+          ></ion-icon>
+          <ion-icon
+            color="danger"
+            name="heart-outline"
+            size="large"
+            *ngIf="mv.liked == 1"
+          ></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button color="transparant" (click)="detailPost(mv.id)">
+          <ion-icon name="chatbubble-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"
+        ><ion-button
+          color="transparant"
+          (click)="editForm()"
+          *ngIf="mv.owner == 1"
+        >
+          <ion-icon
+            name="color-wand-outline"
+            size="large"
+          ></ion-icon> </ion-button
+      ></ion-col>
+      <ion-col size="3"
+        ><ion-button
+          color="transparant"
+          (click)="deletePost(mv.id)"
+          *ngIf="mv.owner == 1"
+        >
+          <ion-icon name="trash-outline" size="large"></ion-icon> </ion-button
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-card>

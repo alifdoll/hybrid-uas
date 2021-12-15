@@ -11,7 +11,6 @@ import { PostService } from '../post.service';
 })
 export class PostsComponent implements OnInit {
   public token: any = '';
-  public id: any = '6';
   posts = [];
 
   constructor(
@@ -34,11 +33,18 @@ export class PostsComponent implements OnInit {
     this.nav.navigateRoot('edit');
   };
 
-  deletePost = function () {
+  deletePost = async function (id) {
+    this.as
+      .deletePosts(await this.storage.get('token'), id)
+      .subscribe((data) => {
+        // this.posts = data.data;
+        // console.log(data.data);
+      });
+    console.log(id);
     window.location.reload();
   };
 
-  detailPost = function () {
-    this.nav.navigateRoot('detail');
+  detailPost = function (id) {
+    this.nav.navigateRoot('/details/' + id);
   };
 }
