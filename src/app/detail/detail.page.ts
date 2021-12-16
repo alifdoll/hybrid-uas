@@ -50,4 +50,8 @@ export class DetailPage implements OnInit {
       .addComment(await this.storage.get('token'), id, this.comment)
       .subscribe(() => this.nav.navigateRoot(''));
   };
+
+  back = function () {
+    this.nav.navigateRoot('');
+  };
 }

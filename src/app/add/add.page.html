@@ -1,11 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Add</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <h1 style="border: 2px white solid; text-align: center; padding: 1rem">
+          Buat Status
+        </h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list class="ion-margin-vertical">
     <ion-item>
       <ion-label position="floating">Caption</ion-label>
       <ion-input type="text" [(ngModel)]="caption"></ion-input>
@@ -16,11 +26,31 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="block" color="secondary" (click)="addPost()">
-    add
-  </ion-button>
-
-  <ion-button expand="block" color="danger" (click)="back()">
-    Cancel
-  </ion-button>
+  <ion-grid fixed class="ion-margin-top">
+    <ion-row>
+      <ion-col size="12"
+        ><ion-button
+          shape="round"
+          fill="outline"
+          expand="block"
+          color="dark"
+          size="large"
+          (click)="addPost()"
+        >
+          Buat Status
+        </ion-button></ion-col
+      >
+      <ion-col size="12"
+        ><ion-button
+          shape="round"
+          expand="block"
+          color="dark"
+          size="large"
+          (click)="back()"
+        >
+          Batal
+        </ion-button></ion-col
+      >
+    </ion-row>
+  </ion-grid>
 </ion-content>

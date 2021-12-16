@@ -1,46 +1,70 @@
 <ion-header *ngIf="!token">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
-  <ion-card *ngIf="!token">
-    <ion-item>
-      <ion-input
-        name="username"
-        type="username"
-        placeholder="username"
-        [(ngModel)]="username"
-      >
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        name="password"
-        type="password"
-        placeholder="Password"
-        [(ngModel)]="password"
-      >
-      </ion-input>
-    </ion-item>
-    <ion-button type="submit" expand="block" (click)="login()"
-      >Login</ion-button
-    >
-    <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
-    <ion-button expand="block" color="secondary" (click)="registerPage()"
-      >Register
-    </ion-button>
-  </ion-card>
+  <ion-grid *ngIf="!token">
+    <ion-row>
+      <ion-col size="8" offset="2" class="ion-margin-vertical">
+        <h1 style="border: 2px white solid; text-align: center; padding: 1rem">
+          Atigabook.
+        </h1>
+      </ion-col>
+      <ion-col size="12" class="ion-margin-top">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input name="username" type="username" [(ngModel)]="username">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-margin-bottom">
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input name="password" type="password" [(ngModel)]="password">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-margin-top">
+        <ion-button
+          type="submit"
+          shape="round"
+          fill="outline"
+          expand="block"
+          color="dark"
+          (click)="login()"
+          size="large"
+          >Login</ion-button
+        >
+      </ion-col>
+      <ion-col size="12">
+        <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button
+          shape="round"
+          expand="block"
+          color="dark"
+          (click)="registerPage()"
+          size="large"
+          >Register
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <h3 style="margin-top: 11.5rem; text-align: center">
+          Powered by Atiga
+        </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-tabs *ngIf="token">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Home</ion-label>
+      <ion-icon name="home-outline"></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="profile">
-      <ion-icon name="ellipse"></ion-icon>
-      <ion-label>Profile</ion-label>
+      <ion-icon name="person-circle-outline"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

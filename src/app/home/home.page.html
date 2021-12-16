@@ -1,6 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Home </ion-title>
+    <ion-title>
+      <h5
+        style="
+          border: 2px white solid;
+          text-align: center;
+          padding: 0.2rem;
+          margin: 0.2rem;
+        "
+      >
+        Atigabook.
+      </h5>
+    </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -12,13 +23,20 @@
     <ion-toolbar>
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="3">
+          <ion-col size="2">
             <ion-avatar>
               <img src="{{ profile.avatar }}" />
             </ion-avatar>
           </ion-col>
-          <ion-col size="9">
-            <ion-button color="primary">Primary</ion-button>
+          <ion-col size="10">
+            <ion-button
+              color="medium"
+              shape="round"
+              expand="block"
+              fill="outline"
+              (click)="addForm()"
+              >Apa yang kamu pikirkan ?
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -27,8 +45,8 @@
 
   <app-posts name="Home Page"></app-posts>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="addForm()">
-      <ion-icon name="add"></ion-icon>
+    <ion-fab-button color="dark" (click)="addForm()">
+      <ion-icon name="pencil-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

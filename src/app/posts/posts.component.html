@@ -14,51 +14,51 @@
       </ion-row>
     </ion-grid>
     <ion-img class="img-content" src="{{ mv.content }}"></ion-img>
+    <ion-grid fixed>
+      <ion-row class="ion-text-start">
+        <ion-col size="12">
+          {{ mv.caption }}
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="transparant" (click)="likePost(mv.id)">
+            <ion-icon
+              name="heart-outline"
+              size="large"
+              *ngIf="mv.liked == 0"
+            ></ion-icon>
+            <ion-icon
+              color="danger"
+              name="heart-outline"
+              size="large"
+              *ngIf="mv.liked == 1"
+            ></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="transparant" (click)="detailPost(mv.id)">
+            <ion-icon name="chatbubble-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="transparant"
+            (click)="editPost(mv.id)"
+            *ngIf="mv.owner == 1"
+          >
+            <ion-icon
+              name="color-wand-outline"
+              size="large"
+            ></ion-icon> </ion-button
+        ></ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="transparant"
+            (click)="deletePost(mv.id)"
+            *ngIf="mv.owner == 1"
+          >
+            <ion-icon name="trash-outline" size="large"></ion-icon> </ion-button
+        ></ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="10" offset="1">
-        {{ mv.caption }}
-      </ion-col>
-      <ion-col size="3">
-        <ion-button color="transparant" (click)="likePost(mv.id)">
-          <ion-icon
-            name="heart-outline"
-            size="large"
-            *ngIf="mv.liked == 0"
-          ></ion-icon>
-          <ion-icon
-            color="danger"
-            name="heart-outline"
-            size="large"
-            *ngIf="mv.liked == 1"
-          ></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col size="3">
-        <ion-button color="transparant" (click)="detailPost(mv.id)">
-          <ion-icon name="chatbubble-outline" size="large"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col size="3"
-        ><ion-button
-          color="transparant"
-          (click)="editPost(mv.id)"
-          *ngIf="mv.owner == 1"
-        >
-          <ion-icon
-            name="color-wand-outline"
-            size="large"
-          ></ion-icon> </ion-button
-      ></ion-col>
-      <ion-col size="3"
-        ><ion-button
-          color="transparant"
-          (click)="deletePost(mv.id)"
-          *ngIf="mv.owner == 1"
-        >
-          <ion-icon name="trash-outline" size="large"></ion-icon> </ion-button
-      ></ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-card>

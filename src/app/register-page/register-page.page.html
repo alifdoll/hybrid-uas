@@ -1,36 +1,62 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Register</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" [(ngModel)]="confirm_password"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-button expand="block" color="danger" (click)="register()"
-    >Register</ion-button
-  >
-  <br /><br /><br />
-
-  <ion-label position="floating">Already Have Account?</ion-label>
-  <ion-button expand="block" color="secondary" (click)="loginPage()"
-    >Log In
-  </ion-button>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="8" offset="2" class="ion-margin-bottom"
+        ><h1 style="border: 2px white solid; text-align: center; padding: 1rem">
+          Atigabook.
+        </h1></ion-col
+      >
+      <ion-col size="12" class="ion-margin-vertical"
+        ><ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" [(ngModel)]="name"></ion-input> </ion-item
+        ><ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input> </ion-item
+        ><ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="password"
+          ></ion-input> </ion-item
+        ><ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="confirm_password"
+          ></ion-input> </ion-item
+      ></ion-col>
+      <ion-col size="12" class="ion-margin-top">
+        <ion-button
+          fill="outline"
+          shape="round"
+          expand="block"
+          color="dark"
+          (click)="register()"
+          size="large"
+          >Register</ion-button
+        >
+      </ion-col>
+      <ion-col size="12">
+        <p style="text-align: center">Already Have Account?</p>
+        <ion-button
+          shape="round"
+          expand="block"
+          color="dark"
+          (click)="loginPage()"
+          size="large"
+          >Log In
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <h3 style="margin-top: 2rem; text-align: center">Powered by Atiga</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

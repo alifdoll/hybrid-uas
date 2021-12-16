@@ -1,15 +1,13 @@
+<ion-toolbar>
+  <ion-item (click)="back()">
+    <ion-label
+      ><ion-icon tab="home" size="large" name="chevron-back-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+</ion-toolbar>
+
 <ion-card>
   <ion-card-content>
-    <!-- <h2>testing</h2>
-    <ion-img
-      src="https://img.freepik.com/free-photo/delicious-vietnamese-food-including-pho-ga-noodles-spring-rolls-white-table_181624-34062.jpg?size=626&ext=jpg"
-    ></ion-img>
-    <ion-avatar>
-      <ion-img [src]=""></ion-img>
-    </ion-avatar>
-    <span class="name">test</span>
-    <span class="handle">test</span> -->
-
     <ion-grid fixed>
       <ion-row>
         <ion-col size="3">
@@ -20,7 +18,6 @@
         <ion-col size="9"
           ><h2 style="margin-top: 1rem">{{ posts.name }}</h2></ion-col
         >
-        <ion-col size="12"></ion-col>
       </ion-row>
     </ion-grid>
     <ion-img class="img-content" src=" {{ posts.content }} "></ion-img>
@@ -49,8 +46,6 @@
             <ion-icon name="chatbubble-outline" size="large"></ion-icon>
           </ion-button>
         </ion-col>
-        <ion-col size="3"> </ion-col>
-        <ion-col size="3"> </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card-content>
@@ -59,13 +54,11 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="3">
-        <ion-avatar>
-          <img src="{{ posts.avatar }}" />
-        </ion-avatar>
-      </ion-col>
-      <ion-col size="6"
+      <ion-col size="9"
         ><ion-input
+          shape="round"
+          fill="outline"
+          color="dark"
           expand="full"
           name="comment"
           type="comment"
@@ -73,16 +66,20 @@
           [(ngModel)]="comment"
         ></ion-input
       ></ion-col>
-      <ion-col size="3"
-        ><ion-button (click)="addComment( posts.id )">Send</ion-button></ion-col
-      >
+      <ion-col size="1"
+        ><ion-button
+          shape="round"
+          color="light"
+          (click)="addComment( posts.id )"
+          ><ion-icon name="send-outline"></ion-icon></ion-button
+      ></ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid *ngFor="let cmo of comments; let i = index">
     <ion-row>
       <ion-col size="2">
         <ion-avatar>
-          <img src="{{ posts.avatar }}" />
+          <img src="{{ cmo.avatar }}" />
         </ion-avatar>
       </ion-col>
       <ion-col size="10">

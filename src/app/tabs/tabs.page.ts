@@ -20,13 +20,11 @@ export class TabsPage {
   login = function () {
     this.as.login(this.username, this.password).subscribe((data) => {
       this.user = data;
-      console.log(this.user.token);
-      this.nav.navigateRoot('');
 
       this.token = this.user.token;
       this.storage.set('token', this.token);
 
-      console.log(this.token);
+      this.nav.navigateRoot('');
     });
   };
 
